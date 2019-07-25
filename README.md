@@ -5,6 +5,6 @@ configured by [eksctl](eksctl.io) through GitOps.
 
 ## Components
 
-TODO: list existing components
+  - kubernetes dashboard
 
 
