@@ -1,0 +1,11 @@
+apiVersion: flux.weave.works/v1beta1
+kind: HelmRelease
+metadata:
+  name: podinfo
+  namespace: demo
+spec:
+  releaseName: podinfo
+  chart:
+    git: https://github.com/stefanprodan/podinfo
+    ref: 2.1.1
+    path: charts/podinfo
