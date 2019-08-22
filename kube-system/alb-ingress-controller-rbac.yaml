@@ -36,6 +36,7 @@ rules:
       - get
       - list
       - watch
+
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
@@ -51,6 +52,7 @@ subjects:
   - kind: ServiceAccount
     name: alb-ingress-controller
     namespace: kube-system
+
 ---
 apiVersion: v1
 kind: ServiceAccount
@@ -59,4 +61,3 @@ metadata:
     app.kubernetes.io/name: alb-ingress-controller
   name: alb-ingress-controller
   namespace: kube-system
-...
