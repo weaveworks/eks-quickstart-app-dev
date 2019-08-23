@@ -1,6 +1,8 @@
 ---
 apiVersion: v1
 data:
+  cluster.name: {{ .ClusterName }}
+  logs.region: {{ .Region }}
   # The below configuration file is in JSON format.
   # Please ensure you keep it well-formed if you modify it.
   cluster-info.json: |
