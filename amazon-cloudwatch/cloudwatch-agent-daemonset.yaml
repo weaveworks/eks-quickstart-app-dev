@@ -24,10 +24,10 @@ spec:
           resources:
             limits:
               cpu:  200m
-              memory: 100Mi
+              memory: 200Mi
             requests:
               cpu: 200m
-              memory: 100Mi
+              memory: 200Mi
           # Please don't change below envs
           env:
             - name: HOST_IP
@@ -46,9 +46,39 @@ spec:
           volumeMounts:
             - name: cwagentconfig
               mountPath: /etc/cwagentconfig
+            - name: rootfs
+              mountPath: /rootfs
+              readOnly: true
+            - name: dockersock
+              mountPath: /var/run/docker.sock
+              readOnly: true
+            - name: varlibdocker
+              mountPath: /var/lib/docker
+              readOnly: true
+            - name: sys
+              mountPath: /sys
+              readOnly: true
+            - name: devdisk
+              mountPath: /dev/disk
+              readOnly: true
       volumes:
         - name: cwagentconfig
           configMap:
             name: cwagentconfig
+        - name: rootfs
+          hostPath:
+            path: /
+        - name: dockersock
+          hostPath:
+            path: /var/run/docker.sock
+        - name: varlibdocker
+          hostPath:
+            path: /var/lib/docker
+        - name: sys
+          hostPath:
+            path: /sys
+        - name: devdisk
+          hostPath:
+            path: /dev/disk/
       terminationGracePeriodSeconds: 60
       serviceAccountName: cloudwatch-agent
