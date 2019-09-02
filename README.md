@@ -13,7 +13,7 @@ configured by [eksctl](https://eksctl.io) through GitOps.
 - [Grafana](https://grafana.com) -- for a rich way to visualize metrics via dashboards you can create, explore, and share.
 - [Kubernetes dashboard](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/) -- Kubernetes' standard dashboard.
 - [Fluentd](https://www.fluentd.org/) & Amazon's [CloudWatch agent](https://aws.amazon.com/cloudwatch/) -- for cluster & containers' [log collection, aggregation & analytics in CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Container-Insights-setup-logs.html).
-- [podinfo](https://github.com/stefanprodan/podinfo) -- our recommended demo application to discover Kubernetes.
+- [podinfo](https://github.com/stefanprodan/podinfo) --  a toy demo application.
 
 ## Get in touch
 
