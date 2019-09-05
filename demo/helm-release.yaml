@@ -7,5 +7,5 @@ spec:
   releaseName: podinfo
   chart:
     git: https://github.com/stefanprodan/podinfo
-    ref: 2.1.1
+    ref: 3.0.0
     path: charts/podinfo
