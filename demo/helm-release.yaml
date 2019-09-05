@@ -9,15 +9,3 @@ spec:
     git: https://github.com/stefanprodan/podinfo
     ref: 2.1.1
     path: charts/podinfo
-  values:
-    service:
-      enabled: true
-      type: NodePort
-    ingress:
-      enabled: true
-      annotations:
-        kubernetes.io/ingress.class: alb
-        alb.ingress.kubernetes.io/scheme: internet-facing
-      path: /
-      hosts:
-        - "*"
