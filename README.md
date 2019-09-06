@@ -41,7 +41,7 @@ For example, for `demo/podinfo`:
 
 - run:
     ```console
-    kubectl port-forward --namespace=demo podinfo-xxxxxxxxxx-xxxxx 9898
+    kubectl -n demo port-forward svc/podinfo 9898:9898
     ```
 - go to http://localhost:9898
 
