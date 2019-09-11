@@ -133,6 +133,12 @@ NAME      HOSTS   ADDRESS                                                       
 podinfo   *       xxxxxxxx-demo-podinfo-xxxx-xxxxxxxxxx.${region}.elb.amazonaws.com   80      1s
 ```
 
+## Securing your endpoints
+For a production-grade deployment, it's recommended to secure your endpoints with SSL. See [Ingress annotations for SSL](https://kubernetes-sigs.github.io/aws-alb-ingress-controller/guide/ingress/annotation/#ssl).
+
+Any sensitive service that needs to be exposed must have some form of authentication. To add authentication to Grafana for e.g., see [Grafana configuration](https://github.com/helm/charts/tree/master/stable/prometheus-operator#grafana).
+To add authentication to other components, please consult their documentation.
+
 ## Get in touch
 
 [Create an issue](https://github.com/weaveworks/eks-quickstart-app-dev/issues/new), or
