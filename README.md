@@ -21,7 +21,7 @@ A running EKS cluster with [IAM policies](https://eksctl.io/usage/iam-policies/)
 - auto-scaler
 - CloudWatch
 
-[Here](https://github.com/weaveworks/eksctl/blob/master/examples/eks-quickstart-app-dev.yaml) is a sample `ClusterConfig` manifest that shows how to enable these policies.
+[Here](https://github.com/weaveworks/eksctl/blob/master/examples/21-eks-quickstart-app-dev.yaml) is a sample `ClusterConfig` manifest that shows how to enable these policies.
 
 **N.B.**: policies are configured at node group level.
 Therefore, depending on your use-case, you may want to:
