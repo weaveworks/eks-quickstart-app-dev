@@ -21,12 +21,21 @@ A running EKS cluster with [IAM policies](https://eksctl.io/usage/iam-policies/)
 - auto-scaler
 - CloudWatch
 
-[Here](https://github.com/weaveworks/eksctl/blob/master/examples/21-eks-quickstart-app-dev.yaml) is a sample `ClusterConfig` manifest that shows how to enable these policies.
+These policies can be added to a nodegroup by including the following `iam` options in your nodegroup config:
 
-**N.B.**: policies are configured at node group level.
-Therefore, depending on your use-case, you may want to:
+```
+nodeGroups:
+  - iam:
+      withAddonPolicies:
+        albIngress: true
+        autoScaler: true
+        cloudWatch: true
+```
 
-- add these policies to all node groups,
+**N.B.**: policies are configured at the nodegroup level.
+Therefore, depending on your use case, you may want to:
+
+- add these policies to all nodegroups,
 - add [node selectors](https://kubernetes.io/docs/concepts/configuration/assign-pod-node/) to the ALB ingress, auto-scaler and CloudWatch pods, so that they are deployed on the nodes configured with these policies.
 
 ## How to access workloads
