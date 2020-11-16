@@ -6,6 +6,8 @@ metadata:
   namespace: kube-system
   labels:
     app: cluster-autoscaler
+  annotations:
+    cluster-autoscaler.kubernetes.io/safe-to-evict: "false"
 spec:
   replicas: 1
   selector:
@@ -15,10 +17,13 @@ spec:
     metadata:
       labels:
         app: cluster-autoscaler
+      annotations:
+        prometheus.io/scrape: 'true'
+        prometheus.io/port: '8085'
     spec:
       serviceAccountName: cluster-autoscaler
       containers:
-        - image: k8s.gcr.io/cluster-autoscaler:v1.12.3
+        - image: k8s.gcr.io/autoscaling/cluster-autoscaler:v1.17.3
           name: cluster-autoscaler
           resources:
             limits:
@@ -35,9 +40,11 @@ spec:
             - --skip-nodes-with-local-storage=false
             - --expander=least-waste
             - --node-group-auto-discovery=asg:tag=k8s.io/cluster-autoscaler/enabled,k8s.io/cluster-autoscaler/{{ .ClusterName }}
+            - --balance-similar-node-groups
+            - --skip-nodes-with-system-pods=false
           volumeMounts:
             - name: ssl-certs
-              mountPath: /etc/ssl/certs/ca-certificates.crt
+              mountPath: /etc/ssl/certs/ca-certificates.crt #/etc/ssl/certs/ca-bundle.crt for Amazon Linux Worker Nodes
               readOnly: true
           imagePullPolicy: "Always"
       volumes:
