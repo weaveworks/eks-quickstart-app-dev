@@ -5,7 +5,7 @@ configured by [eksctl](https://eksctl.io) through GitOps.
 
 ## Components
 
-- ALB ingress controller -- to easily expose services to the World.
+- [AWS load balancer controller](https://kubernetes-sigs.github.io/aws-load-balancer-controller/latest/) -- to easily expose services to the World.
 - [Cluster autoscaler](https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler) -- to [automatically add/remove nodes](https://aws.amazon.com/premiumsupport/knowledge-center/eks-cluster-autoscaler-setup/) to/from your cluster based on its usage.
   - The autoscaler is configured as [recommended in the AWS autoscaler docs](https://docs.aws.amazon.com/eks/latest/userguide/cluster-autoscaler.html#ca-deploy)
   - See also [the autoscaler docs for the AWS provider](https://github.com/kubernetes/autoscaler/blob/f18b65a80c6f83b35cac057c136af14871552d3c/cluster-autoscaler/cloudprovider/aws/README.md)
