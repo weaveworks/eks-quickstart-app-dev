@@ -1,0 +1,15 @@
+---
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: aws-load-balancer-controller
+  namespace: kube-system
+spec:
+  helmVersion: v3
+  releaseName: aws-load-balancer-controller
+  chart:
+    repository: https://aws.github.io/eks-charts
+    name: aws-load-balancer-controller
+    version: 1.1.0
+  values:
+    clusterName: {{.ClusterName}}
